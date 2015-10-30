@@ -1,0 +1,33 @@
+services:
+  plugin.manager.migrate.migration:
+    class: '\Drupal\Core\Plugin\DefaultPluginManager'
+    arguments:
+      - 'Plugin/migrate/migration'
+      - '@container.namespaces'
+      - '@module_handler'
+      - '\Drupal\migrate_mini\Plugin\MigrationInterface'
+      - '\Drupal\migrate_mini\Annotation\Migration'
+  plugin.manager.migrate.source:
+    class: '\Drupal\Core\Plugin\DefaultPluginManager'
+    arguments:
+      - 'Plugin/migrate/source'
+      - '@container.namespaces'
+      - '@module_handler'
+      - '\Drupal\migrate_mini\Plugin\SourceInterface'
+      - '\Drupal\migrate_mini\Annotation\MigrateSource'
+  plugin.manager.migrate.processor:
+    class: '\Drupal\Core\Plugin\DefaultPluginManager'
+    arguments:
+      - 'Plugin/migrate/processor'
+      - '@container.namespaces'
+      - '@module_handler'
+      - '\Drupal\migrate_mini\Plugin\ProcessorInterface'
+      - '\Drupal\migrate_mini\Annotation\MigrateProcessor'
+  plugin.manager.migrate.destination:
+    class: '\Drupal\Core\Plugin\DefaultPluginManager'
+    arguments:
+      - 'Plugin/migrate/destination'
+      - '@container.namespaces'
+      - '@module_handler'
+      - '\Drupal\migrate_mini\Plugin\DestinationInterface'
+      - '\Drupal\migrate_mini\Annotation\MigrateDestination'
